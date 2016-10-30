@@ -1,0 +1,6 @@
+<p>{{pageTitle}}</p>
+<input #text type="text">
+<button (click)="onClick(text.value)">Add</button>
+<ul>
+	<li *ngFor="let item of getItems()">{{item}}</li>
+</ul>

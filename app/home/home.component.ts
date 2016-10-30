@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ItemService } from './home.service';
 
 @Component({
 	selector: 'app-home',
@@ -6,11 +7,19 @@ import { Component } from '@angular/core';
 
 })
 export class HomeComponent  {
+
 	pageTitle = 'EPL-Home';
 
-	items = [ 'schaf', 'tier', 'haus', 'garten'];
+	constructor(private m_itemService: ItemService) {
+
+	}
+
+	getItems() {
+		return this.m_itemService.Items();
+	}
 
 	onClick(value) {
-		this.items.push(value);
+		this.m_itemService.Items().push(value);
+		
 	}
 }
