@@ -2,5 +2,5 @@
 <input #text type="text">
 <button (click)="onClick(text.value)">Add</button>
 <ul>
-	<li *ngFor="let item of getItems()">{{item}}</li>
+	<app-item-row *ngFor="let item of getItems()" [item]="item"></app-item-row>
 </ul>

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
+import { ItemRowComponent } from './item-row/item-row.component'
 import { ItemService } from './home/home.service'
 import { AboutComponent } from './about/about.component'
 
@@ -18,6 +19,7 @@ import { AboutComponent } from './about/about.component'
   declarations: [ 
       AppComponent,
       HomeComponent,
+      ItemRowComponent,
       AboutComponent
    ],
    providers: [

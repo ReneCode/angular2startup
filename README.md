@@ -3,6 +3,8 @@ startup project for a Angular2 app
 
 based on:  https://angular.io/docs/ts/latest/quickstart.html
 
+and: https://egghead.io/lessons/angular-2-passing-data-to-components-with-input?series=angular-2-fundamentals
+
 Start: 
 - npm install
 - npm run postinstall
@@ -32,10 +34,20 @@ eintragen in module.ts
 	@Injectable()
 	export class ItemService {...}
 
+inject in where you use it:
+
+	constructor(private itemServer: ItemService)
+
 Eintragen in module.ts
 
 	providers: [
 		ItemService
+
+or:
+
+	constructor(@Injectable('mail') private mailService)
+
+	providers: [ { provice:'mail', useClass:MailService} ]
 
 
 ### Routing:
@@ -57,3 +69,20 @@ in module.ts definieren:
 so wird es angesprochen:
 
 	<a routerLink="about">home</a> |
+
+## using in html
+
+	<li *ngFor="let msg of mail.messages">{{msg}}</li>
+
+
+send values to a child component
+
+	<app-item 
+		*ngFor="let msg of mail.messages 
+		[param]="msg > 
+	</app-item>
+
+	class ItemComponent {
+		@Input() param;
+	}
+	{{param}}
