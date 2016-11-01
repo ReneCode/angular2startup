@@ -23,10 +23,10 @@ happy coding
 	})
 	export class HomeComponent {...}
 
-eintragen in module.ts
+add this in module.ts
 
-	  declarations: [ 
-	      HomeComponent,
+	declarations: [ 
+	    HomeComponent,
 
 
 ### Service:
@@ -38,7 +38,7 @@ inject in where you use it:
 
 	constructor(private itemServer: ItemService)
 
-Eintragen in module.ts
+add this in module.ts
 
 	providers: [
 		ItemService
@@ -51,29 +51,49 @@ or:
 
 
 ### Routing:
-hier wird das routing eingefügt:
+place, where the routing will be shown:
 
 	<router-outlet></router-outlet>
 
-in module.ts definieren:
+enter this in module.ts
 
 	import { RouterModule } from '@angular/router';
 
 	imports: [
-		RouterModule.forRoot([
-			{ path: "", component: HomeComponent },
-			{ path: "about", component: AboutComponent } 
-		]) 
+	   RouterModule.forRoot([
+		  { path: "", component: HomeComponent },
+		  { path: "about", component: AboutComponent } 
+	   ]) 
 	]
 
-so wird es angesprochen:
+link a a route:
 
 	<a routerLink="about">home</a> |
+
+
+### pipe
+
+	<li *ngFor"let item of getItems() | itemFilter:filterText">
+
+	import { PipeTransform, Pipe } from '@angular/core'
+
+	@Pipe({
+		name:'itemFilter'
+	})
+	export class ItemFilterPipe implements PipeTransform {
+		transform(list, filterBy) {
+
+in module.ts:
+
+  declarations: [ 
+      ItemFilterPipe
+   ]
+
+
 
 ## using in html
 
 	<li *ngFor="let msg of mail.messages">{{msg}}</li>
-
 
 send values to a child component
 
@@ -86,3 +106,7 @@ send values to a child component
 		@Input() param;
 	}
 	{{param}}
+
+	[]  input
+	()  output
+	<text type="text" [(ngModel)]=param

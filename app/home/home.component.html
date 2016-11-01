@@ -1,6 +1,13 @@
 <p>{{pageTitle}}</p>
+<div>
 <input #text type="text">
 <button (click)="onClick(text.value)">Add</button>
+</div>
+<div>
+	<label>Search:</label>
+	<input [(ngModel)]="filterText" type="text" >
+
+</div>
 <ul>
-	<app-item-row *ngFor="let item of getItems()" [item]="item"></app-item-row>
+	<app-item-row *ngFor="let item of getItems() | itemFilter:filterText" [item]="item"></app-item-row>
 </ul>

@@ -9,6 +9,7 @@ import { ItemService } from './home.service';
 export class HomeComponent  {
 
 	pageTitle = 'EPL-Home';
+	searchText = "";
 
 	constructor(private m_itemService: ItemService) {
 
@@ -19,7 +20,8 @@ export class HomeComponent  {
 	}
 
 	onClick(value) {
+	//	console.log(this.searchText);
 		this.m_itemService.Items().push(value);
-		
 	}
+
 }
